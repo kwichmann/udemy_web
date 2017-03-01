@@ -6,25 +6,40 @@
 <body>
 <h1>Register</h1>
 <form>
-	First Name: <input type="text" name="firstname" value="John" required>
-	Last Name: <input type="text" name="lastname" value="Smith"	required>
+	<label for="firstname">First Name: </label>
+	<input type="text" name="firstname" id="firstname" placeholder="John" required>
+	<label for="lastname">Last Name: </label>
+	<input type="text" name="lastname" id="lastname" placeholder="Smith" required>
 	<br>
 	
-	<input type="radio" name="gender" value="male" checked>Male
-	<input type="radio" name="gender" value="female">Female
-	<input type="radio" name="gender" value="male">Other
+	<label for="male">Male</label>
+	<input type="radio" name="gender" id="male" value="male" checked>
+	<label for="female">Female</label>
+	<input type="radio" name="gender" id="female" value="female">
+	<label for="other">Other</label>
+	<input type="radio" name="gender" id="other" value="other">
 	<br>
 
-	Email: <input type="email" name="mail" required>
-	Password: <input type="password" name="password" minlength="5" maxlength="10" required>
+	<label>
+		Email:
+		<input type="email" name="mail" placeholder="Your email" required>
+	</label>
+	<label>
+		Password: 
+		<input type="password" name="password" minlength="5" maxlength="10" required>
+	</label>
 	<br>
 
-	Birthday:
-	<input type="date" name="bday" required>
+	<label>
+		Birthday:
+		<input type="date" name="bday" required>
+	</label>
 	<br>
 
-	I agree to the terms and conditions: 
+	<label>
+		I agree to the terms and conditions: 
 	<input type="checkbox" name="accept" required>
+	</label>
 	<br>
 
 	<input type="submit">

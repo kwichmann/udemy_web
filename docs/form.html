@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Exercise</title>
+</head>
+<body>
+<h1>Register</h1>
+<form>
+	First Name: <input type="text" name="firstname" value="John" required>
+	Last Name: <input type="text" name="lastname" value="Smith"	required>
+	<br>
+	
+	<input type="radio" name="gender" value="male" checked>Male
+	<input type="radio" name="gender" value="female">Female
+	<input type="radio" name="gender" value="male">Other
+	<br>
+
+	Email: <input type="email" name="mail" required>
+	Password: <input type="password" name="password" minlength="5" maxlength="10" required>
+	<br>
+
+	Birthday:
+	<input type="date" name="bday" required>
+	<br>
+
+	I agree to the terms and conditions: 
+	<input type="checkbox" name="accept" required>
+	<br>
+
+	<input type="submit">
+</form>
+</body>
+</html>

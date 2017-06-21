@@ -8,6 +8,10 @@
 	margin: auto;
 }
 
+.post {
+	margin-bottom: 20px;
+}
+
 .date {
 	color: #3498db;
 	text-transform: uppercase;
@@ -22,4 +26,10 @@ h2 {
 .quote {
 	border-left: 5px solid #2c3e50;
 	padding-left: 5px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }

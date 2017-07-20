@@ -5,6 +5,9 @@ var colorDisplay = document.querySelector("#colorDisplay");
 var messageDisplay = document.getElementById("message");
 var h1 = document.querySelector("h1");
 var resetButton = document.getElementById("reset");
+var easyButton = document.getElementById("easyButton");
+var hardButton = document.getElementById("hardButton");
+var squaresShown = 6;
 
 resetButton.addEventListener("click", function() {
 	resetGame();
@@ -12,7 +15,7 @@ resetButton.addEventListener("click", function() {
 
 function resetGame() {
 	// Randomize colors;
-	colors = generateRandomColors(6);
+	colors = generateRandomColors(squaresShown);
 	
 	// Pick color and display it
 	pickedColor = pickColor();
@@ -20,14 +23,34 @@ function resetGame() {
 	
 	// Coloring the squares
 	for (var i = 0; i < squares.length; i++) {
-		squares[i].style.backgroundColor = colors[i];
+		if (colors[i]) {
+			squares[i].style.backgroundColor = colors[i];
+			squares[i].style.display = "block";
+		} else {
+			squares[i].style.display = "none";
+		}
 	}
 
-	h1.style.backgroundColor = "#232323";
+	h1.style.backgroundColor = "steelblue";
 	resetButton.textContent = "New colors";
+	messageDisplay.textContent = "";
 }
 
 resetGame();
+
+easyButton.addEventListener("click", function() {
+	easyButton.classList.add("selected");
+	hardButton.classList.remove("selected");
+	squaresShown = 3;
+	resetGame();
+});
+
+hardButton.addEventListener("click", function() {
+	hardButton.classList.add("selected");
+	easyButton.classList.remove("selected");
+	squaresShown = 6;
+	resetGame();
+});
 
 // Set up event listeners
 for (var i = 0; i < 6; i++) {
@@ -46,7 +69,7 @@ for (var i = 0; i < 6; i++) {
 }
 
 function changeColors(color) {
-	for (var i = 0; i < 6; i++) {
+	for (var i = 0; i < colors.length; i++) {
 		squares[i].style.backgroundColor = color;
 	}
 }
@@ -59,7 +82,7 @@ function pickColor() {
 function generateRandomColors(n) {
 	var colors = [];
 
-	for (var i = 1; i < n; i++) {		
+	for (var i = 0; i < n; i++) {		
 		colors.push(randomColor());
 	}
 	return colors;

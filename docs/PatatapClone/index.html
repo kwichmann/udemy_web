@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>PaperJS circle exercise</title>
+
+	<script type="text/javascript" src="paper-full.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.min.js"></script>
+	<script type="text/javascript" src="data.js"></script>
+	
+	<script type="text/paperscript" canvas="canvas">
+		var circles = [];
+
+		function onKeyDown(event) {
+			if (keyData[event.key]) {
+				var maxPoint = new Point(view.size.width, view.size.height);
+				var randomPoint = Point.random();
+				var point = maxPoint * randomPoint;
+
+				var newCircle = new Path.Circle(point, 300);
+				newCircle.fillColor = keyData[event.key].color;
+				circles.push(newCircle)
+
+				keyData[event.key].sound.play();
+			}
+		}
+
+		function onFrame(event) {
+			circles.forEach(function(circle) {
+				circle.fillColor.hue += 1;
+				circle.scale(.9);
+			});
+
+			if (circles[0]) {
+				if (circles[0].area < 1) {
+					circles[0].remove();
+	      			circles.shift();
+				}
+			}		
+		}
+	</script>
+
+	<link rel="stylesheet" type="text/css" href="clone.css">
+</head>
+
+<body>
+	<canvas id="canvas" resize></canvas>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>PaperJS circle exercise</title>
+
+	<script type="text/javascript" src="paper-full.min.js"></script>
+	<script type="text/paperscript" canvas="canvas">
+		var canvas = document.getElementById("canvas");
+
+		var x = 0;
+		var y = 0;
+
+		while (x < canvas.width) {
+			while (y < canvas.height) {
+				var circle = new Path.Circle(new Point(x, y), 15);
+				circle.fillColor = "purple";
+				y += 100;
+			}
+			y = 0;
+			x += 100;
+		}
+	</script>
+
+	<link rel="stylesheet" type="text/css" href="clone.css">
+</head>
+
+<body>
+	<canvas id="canvas" resize></canvas>
+</body>
+
+</html>
